@@ -15,9 +15,27 @@
       #messages > li:nth-child(odd) { background: #efefef; }
     </style>
   </head>
-  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
   <script>
-    var socket = io();
+    function main() {
+      var socket = io();
+      var form = document.getElementById('form');
+      var input = document.getElementById('input');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if(!input.value)
+          return;
+        socket.emit('chat message',input.value);
+        input.value = '';
+      });
+    }
+
+    var _ = setInterval( function () {
+    if ( document.readyState !== 'complete' ) return;
+    clearInterval( _ );       
+    main();
+    }, 100 );
   </script>
   <body>
     <ul id="messages"></ul>
