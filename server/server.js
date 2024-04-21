@@ -11,6 +11,11 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 io.on('connection', (socket) => {
   console.log('a user connected');
+
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+  
 });
 
 app.get('/', (req, res) => {
