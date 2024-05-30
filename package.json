@@ -1,5 +1,17 @@
 {
+  "name": "chat-api-sample",
+  "version": "0.0.1",
+  "description": "webapi for chat app",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test/test.js"
+  },
   "dependencies": {
+    "express": "^4.19.2",
     "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "iocat": "^0.4.1"
   }
 }
